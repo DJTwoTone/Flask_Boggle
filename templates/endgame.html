@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{%block title%}GAME OVER{%endblock%}
+
+{% block content %}
+<h1>GAME OVER</h1>
+<p>Your score was {{score}}</p>
+<p>The high score is {{high_score}}</p>
+<p>You have played {{games_num}} games</p>
+
+
+
+
+
+<form action="/play">
+    <button>PLAY AGAIN?</button>
+    <label for="length">Game length (in seconds)</label>
+    <input type="number" name="length" id="length" value="60">
+    <p>Board Size:</p>
+    <label for="width">Width</label>
+    <input type="number" name="width" id="width" value="5" min="4" max="20">
+    <label for="height">Height</label>
+    <input type="number" name="height" id="height" value="5" min="4" max="20">
+</form>
+
+{% endblock %}
