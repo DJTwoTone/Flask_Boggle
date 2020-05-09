@@ -21,13 +21,15 @@
 </div>
 
 <table>
-{% for row in boggle_board %}
-    <tr>
-        {% for cell in row %}
-            <td>{{cell}}</td>
+    <tbody>
+        {% for row in boggle_board %}
+            <tr>
+                {% for cell in row %}
+                    <td>{{cell}}</td>
+                {% endfor %}
+            </tr>
         {% endfor %}
-    </tr>
-{% endfor %}
+    </tbody>
 
 
 </table>
@@ -40,4 +42,9 @@
 
 <p id="msg"></p>
 
+
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+crossorigin="anonymous"></script>
+<script src="https://unpkg.com/axios/dist/axios.js"></script>
+<script src="/static/app.js"></script>
 {% endblock %}

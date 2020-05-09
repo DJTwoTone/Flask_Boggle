@@ -26,47 +26,44 @@ function guessStatus(msg) {
 }
 
 function keepingScore(points) {
-    const oldScore = parseInt($score[0].innerText);
+    const oldScore = parseInt($score[0].textContent);
     const newScore = oldScore + points;
     $score.text(newScore);
 }
 
+// innerText => textContent
+
 $(function () {
     let $timer = $('#timer')
-    if ($timer != undefined) {
-        let remainingTime = parseInt($timer[0].innerText);
-    }
-    let bTimer = setInterval(function () {countdown()} , 1000);
+    let remainingTime = parseInt($timer[0].textContent);
+    
+    let bTimer = setInterval(countdown, 1000);
 
     function countdown () {
         if (remainingTime === 0) {
             clearInterval(bTimer)
             $('form :input').prop('disabled', true);
-            storeStatsEndGame();
-            
+            storeStatsEndGame();        
         } else {
             remainingTime = remainingTime - 1;
             $timer.text(remainingTime);
-
         }
     }
-
 })
 
 async function storeStatsEndGame() {
      
-    const currentScore = parseInt($score[0].innerText);
-    const highScore = parseInt($highScore[0].innerText);
+    const currentScore = parseInt($score[0].textContent);
+    const highScore = parseInt($highScore[0].textContent);
     let newHigh;
     if (currentScore > highScore) {
         newHigh = currentScore;
     } else {
         newHigh = highScore;
     }
-    let games = parseInt($gameNum[0].innerText);
+    let game_num = parseInt($gameNum[0].textContent);
 
-    games = games + 1;
- 
+    game_num = game_num + 1;
 
-    await axios.get('/end_game', {params: {high_score: `${newHigh}`, games_num: `${games}`, score: `${currentScore}`}})
+    window.location.assign(`../end_game?high_score=${newHigh}&game_num=${game_num}&score=${currentScore}`);
 }
