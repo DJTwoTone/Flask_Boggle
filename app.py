@@ -45,14 +45,14 @@ def word_check():
     boggle_board = session['board']
     res = boggle_game.check_valid_word(boggle_board, word)
     # this calls on the global
-    # I'm not really sure why they want us to jsonify this data
     return res
 
 @app.route('/end_game')
 def end_game():
-    game_num = int(request.args['game_num'])
     high_score = int(request.args['high_score'])
     score = int(request.args['score'])
+    game_num = session['game_nums']
+    game_num = game_num + 1
     session['game_nums'] = game_num
     session['high_score'] = high_score
 

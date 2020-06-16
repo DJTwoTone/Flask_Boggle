@@ -13,14 +13,18 @@
 
 
 <form action="/play">
-    <button>PLAY AGAIN?</button>
-    <label for="length">Game length (in seconds)</label>
-    <input type="number" name="length" id="length" value="60">
-    <p>Board Size:</p>
-    <label for="width">Width</label>
-    <input type="number" name="width" id="width" value="5" min="4" max="20">
-    <label for="height">Height</label>
-    <input type="number" name="height" id="height" value="5" min="4" max="20">
+    <div>
+        <button class="play-boggle">PLAY AGAIN?</button>
+    </div>
+    <div>
+        <label for="length">Game length (in seconds)</label>
+        <input type="number" name="length" id="length" value="60">
+        <p>Board Size:</p>
+        <label for="width">Width</label>
+        <input type="number" name="width" id="width" value="5" min="4" max="20">
+        <label for="height">Height</label>
+        <input type="number" name="height" id="height" value="5" min="4" max="20">
+    </div>
 </form>
 
 {% endblock %}

@@ -1,7 +1,7 @@
 $guessForm = $('#guessForm');
 $message = $('#msg');
 $score = $('#score');
-$gameNum = $('#gameNum');
+// $gameNum = $('#gameNum');
 $highScore = $('#highScore');
 
 usedWords = []
@@ -61,9 +61,7 @@ async function storeStatsEndGame() {
     } else {
         newHigh = highScore;
     }
-    let game_num = parseInt($gameNum[0].textContent);
+    
 
-    game_num = game_num + 1;
-
-    window.location.assign(`../end_game?high_score=${newHigh}&game_num=${game_num}&score=${currentScore}`);
+    window.location.assign(`../end_game?high_score=${newHigh}&score=${currentScore}`);
 }
